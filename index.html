@@ -1,10 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="nexus-light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nexus-admin</title>
+    <meta
+      name="description"
+      content="Nexus Admin design system and application foundation."
+    />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Nexus Admin</title>
+    <script>
+      (function () {
+        try {
+          var storedTheme = localStorage.getItem("nexus-theme");
+          var theme = storedTheme
+            ? JSON.parse(storedTheme).state.theme
+            : "nexus-light";
+
+          if (theme === "nexus-light" || theme === "nexus-dark") {
+            document.documentElement.setAttribute("data-theme", theme);
+          }
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", "nexus-light");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

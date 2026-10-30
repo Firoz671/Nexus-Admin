@@ -1,0 +1,15 @@
+export const SHOWCASE_SECTIONS = Object.freeze([
+  { id: "overview", label: "Overview" },
+  { id: "colors", label: "Colors" },
+  { id: "typography", label: "Typography" },
+  { id: "buttons", label: "Buttons" },
+  { id: "inputs", label: "Inputs" },
+  { id: "badges", label: "Badges" },
+  { id: "cards", label: "Cards" },
+  { id: "avatars", label: "Avatars" },
+  { id: "modal", label: "Modal" },
+  { id: "dropdown", label: "Dropdown" },
+  { id: "feedback", label: "Feedback states" },
+  { id: "notifications", label: "Notifications" },
+  { id: "themes", label: "Themes" },
+]);
