@@ -11,7 +11,20 @@ describe("App", () => {
     window.history.replaceState({}, "", "/");
   });
 
-  it("redirects the root route to the design system showcase", async () => {
+  it("redirects the root route to the dashboard overview", async () => {
+    render(<App />);
+
+    expect(
+      await screen.findByRole("heading", { level: 1, name: "Overview" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/dashboard");
+    expect(
+      screen.getByRole("complementary", { name: "Sidebar" }),
+    ).toBeInTheDocument();
+  });
+
+  it("keeps the design system showcase accessible", async () => {
+    window.history.replaceState({}, "", "/design-system");
     render(<App />);
 
     expect(
@@ -21,8 +34,5 @@ describe("App", () => {
       }),
     ).toBeInTheDocument();
     expect(window.location.pathname).toBe("/design-system");
-    expect(
-      screen.getByRole("heading", { level: 2, name: "Color system" }),
-    ).toBeInTheDocument();
   });
 });

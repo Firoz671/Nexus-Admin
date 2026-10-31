@@ -6,6 +6,7 @@ const MENU_ITEM_SELECTOR = '[role="menuitem"]:not([disabled])';
 
 export function Dropdown({
   trigger,
+  triggerAriaLabel,
   items = [],
   align = "end",
   disabled = false,
@@ -121,6 +122,7 @@ export function Dropdown({
         id={triggerId}
         type="button"
         className={cn("btn btn-outline", triggerClassName)}
+        aria-label={triggerAriaLabel}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={open ? menuId : undefined}
@@ -128,7 +130,7 @@ export function Dropdown({
         onClick={() => setOpen((current) => !current)}
         onKeyDown={handleTriggerKeyDown}
       >
-        <span>{trigger}</span>
+        {trigger}
         <ChevronDown
           className={cn(
             "size-4 transition-transform duration-200",

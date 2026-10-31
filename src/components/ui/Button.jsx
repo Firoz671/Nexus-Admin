@@ -22,6 +22,7 @@ const spinnerClasses = {
 
 export function Button({
   children,
+  ref,
   variant = "primary",
   size = "md",
   type = "button",
@@ -37,6 +38,7 @@ export function Button({
   return (
     <button
       {...props}
+      ref={ref}
       type={type}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
