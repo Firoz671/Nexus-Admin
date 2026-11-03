@@ -41,21 +41,21 @@ const NotificationsPlaceholderPage = lazyNamed(
   () => import("@/features/notifications/pages/NotificationsPlaceholderPage"),
   "NotificationsPlaceholderPage",
 );
-const OrdersPlaceholderPage = lazyNamed(
-  () => import("@/features/orders/pages/OrdersPlaceholderPage"),
-  "OrdersPlaceholderPage",
+const OrdersPage = lazyNamed(
+  () => import("@/features/orders/pages/OrdersPage"),
+  "OrdersPage",
 );
-const ProductsPlaceholderPage = lazyNamed(
-  () => import("@/features/products/pages/ProductsPlaceholderPage"),
-  "ProductsPlaceholderPage",
+const ProductsPage = lazyNamed(
+  () => import("@/features/products/pages/ProductsPage"),
+  "ProductsPage",
 );
 const SettingsPlaceholderPage = lazyNamed(
   () => import("@/features/settings/pages/SettingsPlaceholderPage"),
   "SettingsPlaceholderPage",
 );
-const UsersPlaceholderPage = lazyNamed(
-  () => import("@/features/users/pages/UsersPlaceholderPage"),
-  "UsersPlaceholderPage",
+const UsersPage = lazyNamed(
+  () => import("@/features/users/pages/UsersPage"),
+  "UsersPage",
 );
 
 export function AppRoutes() {
@@ -72,9 +72,9 @@ export function AppRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/users" element={<UsersPlaceholderPage />} />
-          <Route path="/products" element={<ProductsPlaceholderPage />} />
-          <Route path="/orders" element={<OrdersPlaceholderPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route
             path="/notifications"

@@ -6,4 +6,6 @@ export { Dropdown } from "./Dropdown";
 export { Input } from "./Input";
 export { Loader } from "./Loader";
 export { Modal } from "./Modal";
+export { Select } from "./Select";
 export { Skeleton } from "./Skeleton";
+export { Textarea } from "./Textarea";

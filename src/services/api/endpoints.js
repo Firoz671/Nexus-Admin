@@ -17,4 +17,19 @@ export const ENDPOINTS = Object.freeze({
   analytics: Object.freeze({
     overview: "/analytics/overview",
   }),
+  users: Object.freeze({
+    list: "/users",
+    detail: (id) => `/users/${encodeURIComponent(id)}`,
+    status: (id) => `/users/${encodeURIComponent(id)}/status`,
+  }),
+  products: Object.freeze({
+    list: "/products",
+    detail: (id) => `/products/${encodeURIComponent(id)}`,
+    status: (id) => `/products/${encodeURIComponent(id)}/status`,
+  }),
+  orders: Object.freeze({
+    list: "/orders",
+    detail: (id) => `/orders/${encodeURIComponent(id)}`,
+    status: (id) => `/orders/${encodeURIComponent(id)}/status`,
+  }),
 });

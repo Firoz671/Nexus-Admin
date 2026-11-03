@@ -1,4 +1,4 @@
-import { delay, http, HttpResponse } from "msw";
+import { delay, http } from "msw";
 import {
   buildAnalyticsOverview,
   buildDashboardSummary,
@@ -14,6 +14,14 @@ import {
   getMockSession,
   toPublicUser,
 } from "./data/users";
+import { managementHandlers } from "./managementHandlers";
+import {
+  errorResponse,
+  getAuthenticatedAccount,
+  getBearerToken,
+  MOCK_DELAY,
+  successResponse,
+} from "./http";
 import { resolveDateRangeParams } from "@/utils/dateRange";
 
 const LOGIN_PATH = /\/auth\/login\/?$/;
@@ -26,43 +34,6 @@ const DASHBOARD_USER_GROWTH_PATH = /\/dashboard\/user-growth\/?$/;
 const DASHBOARD_TRANSACTIONS_PATH = /\/dashboard\/transactions\/?$/;
 const DASHBOARD_ACTIVITIES_PATH = /\/dashboard\/activities\/?$/;
 const ANALYTICS_OVERVIEW_PATH = /\/analytics\/overview\/?$/;
-const MOCK_DELAY = import.meta.env.MODE === "test" ? 0 : 300;
-
-function errorResponse(status, message) {
-  return HttpResponse.json(
-    {
-      success: false,
-      message,
-      data: null,
-    },
-    { status },
-  );
-}
-
-function successResponse(message, data) {
-  return HttpResponse.json({
-    success: true,
-    message,
-    data,
-  });
-}
-
-function getBearerToken(request) {
-  const header = request.headers.get("Authorization") ?? "";
-  const [scheme, token] = header.split(" ");
-
-  if (scheme?.toLowerCase() !== "bearer" || !token) {
-    return null;
-  }
-
-  return token;
-}
-
-function getAuthenticatedAccount(request) {
-  const token = getBearerToken(request);
-
-  return token ? findAccountByToken(token) : null;
-}
 
 function resolveRequestDateRange(request) {
   try {
@@ -190,4 +161,5 @@ export const handlers = [
     "Analytics overview retrieved",
     buildAnalyticsOverview,
   ),
+  ...managementHandlers,
 ];

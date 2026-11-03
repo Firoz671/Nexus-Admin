@@ -32,6 +32,7 @@ export default defineConfig({
     globals: true,
     css: true,
     clearMocks: true,
+    maxWorkers: 2,
     testTimeout: 15000,
     hookTimeout: 15000,
   },
