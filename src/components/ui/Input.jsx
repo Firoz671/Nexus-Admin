@@ -10,6 +10,7 @@ export function Input({
   required = false,
   leadingIcon = null,
   trailingIcon = null,
+  trailingAction = null,
   id,
   type = "text",
   className,
@@ -64,7 +65,9 @@ export function Input({
           className={cn("grow", className)}
         />
 
-        {trailingIcon ? (
+        {trailingAction ? (
+          <span className="shrink-0">{trailingAction}</span>
+        ) : trailingIcon ? (
           <span
             className="pointer-events-none shrink-0 text-base-content/50 [&_svg]:size-4"
             aria-hidden="true"

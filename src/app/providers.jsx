@@ -1,29 +1,8 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000,
-      gcTime: 10 * 60 * 1000,
-      retry: (failureCount, error) => {
-        const status = error?.response?.status;
-
-        if (status >= 400 && status < 500) {
-          return false;
-        }
-
-        return failureCount < 2;
-      },
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: true,
-    },
-    mutations: {
-      retry: 0,
-    },
-  },
-});
+import { AuthSessionInitializer } from "@/features/auth/components/AuthSessionInitializer";
+import { queryClient } from "./queryClient";
 
 const toastOptions = {
   duration: 3500,
@@ -60,7 +39,7 @@ export function AppProviders({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        {children}
+        <AuthSessionInitializer>{children}</AuthSessionInitializer>
         <Toaster position="top-right" gutter={10} toastOptions={toastOptions} />
       </BrowserRouter>
     </QueryClientProvider>

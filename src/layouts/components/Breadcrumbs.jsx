@@ -1,13 +1,19 @@
 import { ChevronRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { DASHBOARD_PATH, getNavItemForPath } from "@/constants/navigation";
+import { isRoleAllowedForPath } from "@/constants/permissions";
+import { useAuthStore } from "@/store/authStore";
 import { cn } from "@/utils/cn";
 
 export function Breadcrumbs({ className }) {
   const { pathname } = useLocation();
+  const user = useAuthStore((state) => state.user);
   const currentItem = getNavItemForPath(pathname);
   const isDashboard = pathname === DASHBOARD_PATH;
-  const currentLabel = currentItem?.label ?? "Page not found";
+  const canAccessCurrentPath = isRoleAllowedForPath(user?.role, pathname);
+  const currentLabel = canAccessCurrentPath
+    ? currentItem?.label ?? "Page not found"
+    : "Access denied";
 
   return (
     <nav

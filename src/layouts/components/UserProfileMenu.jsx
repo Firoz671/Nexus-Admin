@@ -10,15 +10,15 @@ import {
 } from "lucide-react";
 import { Avatar } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
+import {
+  isRoleAllowedForPath,
+  ROLE_LABELS,
+} from "@/constants/permissions";
+import { useLogout } from "@/features/auth/hooks/useAuth";
+import { useAuthStore } from "@/store/authStore";
 import { cn } from "@/utils/cn";
 
 const MENU_ITEM_SELECTOR = '[role="menuitem"]:not([disabled])';
-
-const PROFILE = Object.freeze({
-  name: "Alex Morgan",
-  role: "Administrator",
-  email: "alex.morgan@nexus.example",
-});
 
 function showPlaceholder(message) {
   toast(message);
@@ -26,7 +26,14 @@ function showPlaceholder(message) {
 
 export function UserProfileMenu({ className }) {
   const [open, setOpen] = useState(false);
+  const user = useAuthStore((state) => state.user);
+  const logoutMutation = useLogout();
   const navigate = useNavigate();
+  const profile = {
+    name: user?.name ?? "Nexus user",
+    role: ROLE_LABELS[user?.role] ?? "Workspace member",
+    email: user?.email ?? "Not signed in",
+  };
   const triggerId = useId();
   const menuId = useId();
   const containerRef = useRef(null);
@@ -123,12 +130,16 @@ export function UserProfileMenu({ className }) {
       onSelect: () =>
         showPlaceholder("My Profile is a UI placeholder in this phase."),
     },
-    {
-      id: "settings",
-      label: "Account Settings",
-      icon: Settings,
-      onSelect: () => navigate("/settings"),
-    },
+    ...(isRoleAllowedForPath(user?.role, "/settings")
+      ? [
+          {
+            id: "settings",
+            label: "Account Settings",
+            icon: Settings,
+            onSelect: () => navigate("/settings"),
+          },
+        ]
+      : []),
     {
       id: "help",
       label: "Help Center",
@@ -139,13 +150,11 @@ export function UserProfileMenu({ className }) {
     { type: "separator" },
     {
       id: "sign-out",
-      label: "Sign Out",
+      label: logoutMutation.isPending ? "Signing out..." : "Sign Out",
       icon: LogOut,
       variant: "danger",
-      onSelect: () =>
-        showPlaceholder(
-          "Sign out is unavailable in this preview. Authentication arrives in a later phase.",
-        ),
+      disabled: logoutMutation.isPending,
+      onSelect: () => logoutMutation.mutate(),
     },
   ];
 
@@ -155,7 +164,7 @@ export function UserProfileMenu({ className }) {
         ref={triggerRef}
         id={triggerId}
         type="button"
-        aria-label={`Open user menu for ${PROFILE.name}`}
+        aria-label={`Open user menu for ${profile.name}`}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={open ? menuId : undefined}
@@ -166,13 +175,17 @@ export function UserProfileMenu({ className }) {
           open && "bg-base-200",
         )}
       >
-        <Avatar name={PROFILE.name} size="sm" />
+        <Avatar
+          name={profile.name}
+          src={user?.avatar ?? undefined}
+          size="sm"
+        />
         <span className="hidden min-w-0 text-left md:block">
           <span className="block truncate text-sm font-medium leading-tight text-base-content">
-            {PROFILE.name}
+            {profile.name}
           </span>
           <span className="block truncate text-[0.6875rem] leading-tight text-base-content/55">
-            {PROFILE.role}
+            {profile.role}
           </span>
         </span>
         <ChevronDown
@@ -191,10 +204,10 @@ export function UserProfileMenu({ className }) {
               Signed in as
             </p>
             <p className="mt-1 truncate text-sm font-semibold text-base-content">
-              {PROFILE.name}
+              {profile.name}
             </p>
             <p className="truncate text-xs text-base-content/55">
-              {PROFILE.email}
+              {profile.email}
             </p>
             <Badge variant="neutral" size="sm" className="mt-2">
               Demo account
@@ -227,13 +240,14 @@ export function UserProfileMenu({ className }) {
                   key={item.id}
                   type="button"
                   role="menuitem"
+                  disabled={item.disabled}
                   onClick={() => {
                     closeMenu({ restoreFocus: true });
                     item.onSelect?.();
                   }}
                   className={cn(
                     "flex w-full items-center gap-2.5 rounded-control px-3 py-2 text-left text-sm font-medium transition-colors",
-                    "focus-visible:bg-base-200 focus-visible:outline-none",
+                    "focus-visible:bg-base-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
                     item.variant === "danger"
                       ? "text-error hover:bg-error/10"
                       : "text-base-content hover:bg-base-200",

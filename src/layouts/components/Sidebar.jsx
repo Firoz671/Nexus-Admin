@@ -5,15 +5,25 @@ import nexusMark from "@/assets/icons/nexus-mark.svg";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
 import { DASHBOARD_PATH, NAV_ITEMS } from "@/constants/navigation";
+import {
+  isRoleAllowedForPath,
+  ROLE_LABELS,
+} from "@/constants/permissions";
+import { useAuthStore } from "@/store/authStore";
 import { cn } from "@/utils/cn";
 
 export function SidebarNavigation({ collapsed = false, onNavigate, className }) {
+  const user = useAuthStore((state) => state.user);
+  const visibleItems = NAV_ITEMS.filter((item) =>
+    isRoleAllowedForPath(user?.role, item.path),
+  );
+
   return (
     <nav
       aria-label="Main navigation"
       className={cn("flex flex-col gap-1 px-3 py-4", className)}
     >
-      {NAV_ITEMS.map((item) => {
+      {visibleItems.map((item) => {
         const Icon = item.icon;
 
         return (
@@ -70,6 +80,10 @@ export function SidebarFooter({
   onToggleCollapse,
   showCollapseControl = true,
 }) {
+  const user = useAuthStore((state) => state.user);
+  const displayName = user?.name ?? "Nexus user";
+  const roleLabel = ROLE_LABELS[user?.role] ?? "Workspace member";
+
   const handleHelp = () => {
     toast("Help and support is planned for a later phase.");
   };
@@ -99,15 +113,19 @@ export function SidebarFooter({
           collapsed && "justify-center border-transparent bg-transparent p-0",
         )}
       >
-        <Avatar name="Alex Morgan" size="sm" />
+        <Avatar
+          name={displayName}
+          src={user?.avatar ?? undefined}
+          size="sm"
+        />
         {!collapsed ? (
           <>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-base-content">
-                Alex Morgan
+                {displayName}
               </p>
               <p className="truncate text-xs text-base-content/55">
-                Administrator
+                {roleLabel}
               </p>
             </div>
             {showCollapseControl ? (

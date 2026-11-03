@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { App } from "@/app/App";
 import { THEMES } from "@/constants/theme";
 import { useThemeStore } from "@/store/themeStore";
+import { signInAs } from "../helpers/auth";
 
 function renderAppAt(path) {
   window.history.replaceState({}, "", path);
@@ -26,6 +27,7 @@ describe("DashboardLayout", () => {
   beforeEach(() => {
     localStorage.clear();
     useThemeStore.setState({ theme: THEMES.LIGHT });
+    signInAs("admin");
     document.documentElement.setAttribute("data-theme", THEMES.LIGHT);
   });
 

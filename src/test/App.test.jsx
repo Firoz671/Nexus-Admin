@@ -3,11 +3,13 @@ import { render, screen } from "@testing-library/react";
 import { App } from "@/app/App";
 import { THEMES } from "@/constants/theme";
 import { useThemeStore } from "@/store/themeStore";
+import { signInAs } from "./helpers/auth";
 
 describe("App", () => {
   beforeEach(() => {
     localStorage.clear();
     useThemeStore.setState({ theme: THEMES.LIGHT });
+    signInAs("admin");
     window.history.replaceState({}, "", "/");
   });
 

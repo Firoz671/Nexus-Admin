@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { BookOpen } from "lucide-react";
 import nexusMark from "@/assets/icons/nexus-mark.svg";
 import { Badge } from "@/components/ui/Badge";
+import { RouteLoadingScreen } from "@/components/shared/RouteLoadingScreen";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { SHOWCASE_SECTIONS } from "@/features/design-system/navigation";
 
@@ -102,7 +104,17 @@ export function ShowcaseLayout() {
           id="main-content"
           className="min-w-0 flex-1 pb-16 pt-8 sm:pt-10"
         >
-          <Outlet />
+          <Suspense
+            fallback={
+              <RouteLoadingScreen
+                fullScreen={false}
+                label="Loading design system"
+                description="Preparing the component showcase."
+              />
+            }
+          >
+            <Outlet />
+          </Suspense>
         </main>
       </div>
 
