@@ -5,6 +5,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { formatNumber } from "@/utils/formatters";
 import { ChartTooltip } from "./ChartTooltip";
 
@@ -15,6 +16,8 @@ const SALES_STATUS_COLORS = Object.freeze({
 });
 
 export function SalesChart({ statuses = [], total = 0 }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <div className="grid gap-4 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] sm:items-center">
       <div
@@ -37,6 +40,7 @@ export function SalesChart({ statuses = [], total = 0 }) {
               paddingAngle={3}
               stroke="var(--color-base-100)"
               strokeWidth={2}
+              isAnimationActive={!prefersReducedMotion}
             >
               {statuses.map((status) => (
                 <Cell
@@ -61,7 +65,7 @@ export function SalesChart({ statuses = [], total = 0 }) {
           <span className="text-2xl font-semibold text-base-content">
             {formatNumber(total, { compact: total >= 10000 })}
           </span>
-          <span className="text-xs text-base-content/55">Total orders</span>
+          <span className="text-xs text-base-content/60">Total orders</span>
         </div>
       </div>
 
@@ -85,7 +89,7 @@ export function SalesChart({ statuses = [], total = 0 }) {
               <span className="text-sm font-semibold tabular-nums text-base-content">
                 {formatNumber(status.value)}
               </span>
-              <span className="w-10 text-right text-xs tabular-nums text-base-content/50">
+              <span className="w-10 text-right text-xs tabular-nums text-base-content/60">
                 {status.percentage}%
               </span>
             </span>

@@ -29,7 +29,7 @@ function DetailSkeleton() {
 
 function SectionHeading({ icon, children }) {
   return (
-    <h4 className="flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-wide text-base-content/45">
+    <h4 className="flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-wide text-base-content/60">
       {icon}
       {children}
     </h4>
@@ -89,7 +89,7 @@ export function OrderDetailModal({ orderId, onClose, onChangeStatus }) {
                 <StatusBadge status={order.status} />
                 <StatusBadge status={order.paymentStatus} />
               </div>
-              <p className="mt-1 text-sm text-base-content/55">
+              <p className="mt-1 text-sm text-base-content/60">
                 Placed {formatDateTime(order.date)}
               </p>
             </div>
@@ -147,10 +147,10 @@ export function OrderDetailModal({ orderId, onClose, onChangeStatus }) {
                       <p className="font-medium text-base-content">
                         {item.name}
                       </p>
-                      <p className="mt-0.5 font-mono text-[0.6875rem] text-base-content/45">
+                      <p className="mt-0.5 font-mono text-[0.6875rem] text-base-content/60">
                         {item.sku}
                       </p>
-                      <p className="mt-1 text-xs text-base-content/55">
+                      <p className="mt-1 text-xs text-base-content/60">
                         {item.quantity} × {formatCurrency(item.unitPrice, {
                           precise: true,
                         })}
@@ -165,14 +165,14 @@ export function OrderDetailModal({ orderId, onClose, onChangeStatus }) {
 
               <dl className="space-y-2 border-t border-base-300 bg-base-200/40 p-4 text-sm">
                 <div className="flex items-center justify-between gap-3">
-                  <dt className="text-base-content/55">Subtotal</dt>
+                  <dt className="text-base-content/60">Subtotal</dt>
                   <dd className="tabular-nums text-base-content">
                     {formatCurrency(order.subtotal, { precise: true })}
                   </dd>
                 </div>
                 {order.discount > 0 ? (
                   <div className="flex items-center justify-between gap-3">
-                    <dt className="text-base-content/55">Discount</dt>
+                    <dt className="text-base-content/60">Discount</dt>
                     <dd className="tabular-nums text-success">
                       −{formatCurrency(order.discount, { precise: true })}
                     </dd>

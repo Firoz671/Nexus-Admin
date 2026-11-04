@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup, configure } from "@testing-library/react";
+import toast from "react-hot-toast";
 import { afterAll, afterEach, beforeAll, vi } from "vitest";
 import { queryClient } from "@/app/queryClient";
 import { resetManagementData } from "@/mocks/data/management";
@@ -30,6 +31,7 @@ beforeAll(() => {
 
 afterEach(() => {
   cleanup();
+  toast.remove();
   server.resetHandlers();
   queryClient.clear();
   resetManagementData();

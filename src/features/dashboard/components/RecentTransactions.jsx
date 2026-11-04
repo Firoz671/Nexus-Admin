@@ -92,13 +92,13 @@ export function RecentTransactions({
                 <li key={transaction.id} className="py-3 first:pt-0 last:pb-0">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="truncate font-mono text-xs text-base-content/50">
+                      <p className="truncate font-mono text-xs text-base-content/60">
                         {transaction.id}
                       </p>
                       <p className="mt-1 truncate text-sm font-medium text-base-content">
                         {transaction.customer}
                       </p>
-                      <p className="mt-0.5 truncate text-xs text-base-content/55">
+                      <p className="mt-0.5 truncate text-xs text-base-content/60">
                         {formatDate(transaction.date)} · {transaction.method}
                       </p>
                     </div>
@@ -122,7 +122,7 @@ export function RecentTransactions({
                 Recent transactions for the selected period
               </caption>
               <thead>
-                <tr className="text-xs uppercase tracking-wide text-base-content/45">
+                <tr className="text-xs uppercase tracking-wide text-base-content/60">
                   <th scope="col" className="pb-3 pr-4 font-semibold">
                     Transaction
                   </th>
@@ -155,7 +155,7 @@ export function RecentTransactions({
                       key={transaction.id}
                       className="border-t border-base-300/70"
                     >
-                      <td className="py-3 pr-4 font-mono text-xs text-base-content/55">
+                      <td className="py-3 pr-4 font-mono text-xs text-base-content/60">
                         {transaction.id}
                       </td>
                       <td className="py-3 pr-4 font-medium text-base-content">

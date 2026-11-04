@@ -132,7 +132,7 @@ export function UsersList({
                       </span>
                     ) : null}
                   </p>
-                  <p className="mt-0.5 truncate text-xs text-base-content/55">
+                  <p className="mt-0.5 truncate text-xs text-base-content/60">
                     {user.email}
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-1.5">
@@ -153,13 +153,13 @@ export function UsersList({
 
             <dl className="mt-3 grid grid-cols-2 gap-2 border-t border-base-300/60 pt-3 text-xs">
               <div>
-                <dt className="text-base-content/45">Registered</dt>
+                <dt className="text-base-content/60">Registered</dt>
                 <dd className="mt-0.5 text-base-content/70">
                   {formatDate(user.createdAt)}
                 </dd>
               </div>
               <div>
-                <dt className="text-base-content/45">Last active</dt>
+                <dt className="text-base-content/60">Last active</dt>
                 <dd className="mt-0.5 text-base-content/70">
                   {formatDate(user.lastActiveAt)}
                 </dd>

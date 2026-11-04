@@ -45,7 +45,7 @@ export function FeedbackSection() {
             {loaderSizes.map((size) => (
               <div
                 key={size}
-                className="flex flex-col items-center gap-2 text-xs text-base-content/45"
+                className="flex flex-col items-center gap-2 text-xs text-base-content/60"
               >
                 <Loader size={size} label={`Loading ${size} example`} />
                 <span className="font-mono uppercase">{size}</span>
@@ -53,7 +53,7 @@ export function FeedbackSection() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-control bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/55">
+          <div className="mt-5 rounded-control bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/60">
             Loaders expose role="status" and an audible label while remaining
             visually compact.
           </div>
@@ -62,7 +62,7 @@ export function FeedbackSection() {
 
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <div>
-          <p className="mb-3 text-label font-semibold uppercase text-base-content/45">
+          <p className="mb-3 text-label font-semibold uppercase text-base-content/60">
             Empty state
           </p>
           <EmptyState
@@ -78,7 +78,7 @@ export function FeedbackSection() {
         </div>
 
         <div>
-          <p className="mb-3 text-label font-semibold uppercase text-base-content/45">
+          <p className="mb-3 text-label font-semibold uppercase text-base-content/60">
             Error state
           </p>
           <ErrorState

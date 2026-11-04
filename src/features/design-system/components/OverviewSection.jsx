@@ -43,7 +43,7 @@ export function OverviewSection() {
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="info">
               <Sparkles className="size-3" aria-hidden="true" />
-              Phase 1 · Foundation
+              Component foundation
             </Badge>
             <Badge variant="success">Design tokens live</Badge>
           </div>
@@ -84,7 +84,7 @@ export function OverviewSection() {
                     <p className="text-lg font-semibold leading-tight text-base-content">
                       {stat.value}
                     </p>
-                    <p className="text-xs text-base-content/55">{stat.label}</p>
+                    <p className="text-xs text-base-content/60">{stat.label}</p>
                   </div>
                 </div>
               );

@@ -108,7 +108,7 @@ export function LoginForm() {
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
               title={showPassword ? "Hide password" : "Show password"}
-              className="flex size-7 items-center justify-center rounded-control text-base-content/50 transition-colors hover:bg-base-200 hover:text-base-content focus-visible:outline-offset-2"
+              className="flex size-7 items-center justify-center rounded-control text-base-content/60 transition-colors hover:bg-base-200 hover:text-base-content focus-visible:outline-offset-2"
             >
               {showPassword ? (
                 <EyeOff className="size-4" aria-hidden="true" />
@@ -150,7 +150,7 @@ export function LoginForm() {
             <p className="text-sm font-semibold text-base-content">
               Demo accounts
             </p>
-            <p className="mt-0.5 text-xs leading-5 text-base-content/55">
+            <p className="mt-0.5 text-xs leading-5 text-base-content/60">
               Fill either account, then submit the form to sign in.
             </p>
           </div>
@@ -175,7 +175,7 @@ export function LoginForm() {
               <p className="mt-2 truncate text-xs font-medium text-base-content">
                 {account.email}
               </p>
-              <p className="mt-0.5 truncate font-mono text-xs text-base-content/55">
+              <p className="mt-0.5 truncate font-mono text-xs text-base-content/60">
                 {account.password}
               </p>
               <Button

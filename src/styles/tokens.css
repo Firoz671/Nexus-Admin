@@ -135,7 +135,8 @@
 
   .nexus-overlay-enter,
   .nexus-panel-enter,
-  .nexus-drawer-enter {
+  .nexus-drawer-enter,
+  .animate-pulse {
     animation: none;
   }
 }

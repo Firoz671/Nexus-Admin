@@ -21,7 +21,7 @@ function ItemCount({ order }) {
       <p className="whitespace-nowrap font-medium text-base-content">
         {itemCount} item{itemCount === 1 ? "" : "s"}
       </p>
-      <p className="mt-0.5 whitespace-nowrap text-xs text-base-content/45">
+      <p className="mt-0.5 whitespace-nowrap text-xs text-base-content/60">
         {lineCount} line{lineCount === 1 ? "" : "s"}
       </p>
     </div>
@@ -57,7 +57,7 @@ export function OrdersList({
             <p className="truncate font-medium text-base-content">
               {order.customer.name}
             </p>
-            <p className="mt-0.5 max-w-48 truncate text-xs text-base-content/50">
+            <p className="mt-0.5 max-w-48 truncate text-xs text-base-content/60">
               {order.customer.email}
             </p>
           </div>
@@ -132,7 +132,7 @@ export function OrdersList({
                 <p className="font-mono text-xs font-semibold text-base-content">
                   {order.id}
                 </p>
-                <p className="mt-1 text-xs text-base-content/45">
+                <p className="mt-1 text-xs text-base-content/60">
                   {formatDate(order.date)}
                 </p>
               </div>
@@ -149,7 +149,7 @@ export function OrdersList({
                 <p className="truncate font-semibold text-base-content">
                   {order.customer.name}
                 </p>
-                <p className="mt-0.5 truncate text-xs text-base-content/50">
+                <p className="mt-0.5 truncate text-xs text-base-content/60">
                   {order.customer.email}
                 </p>
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">

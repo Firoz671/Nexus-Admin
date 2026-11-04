@@ -142,7 +142,7 @@ export function MobileSidebar({ open, onClose, onNavigate }) {
               <span className="block truncate text-sm font-semibold text-base-content">
                 Nexus Admin
               </span>
-              <span className="block truncate text-xs text-base-content/55">
+              <span className="block truncate text-xs text-base-content/60">
                 Administration console
               </span>
             </span>

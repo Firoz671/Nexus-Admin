@@ -40,6 +40,8 @@ export function Avatar({ src, alt = "", name, size = "md", className }) {
         <img
           src={src}
           alt={alt || name || "Avatar"}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover"
           onError={() => setFailedSrc(src)}
         />

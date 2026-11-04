@@ -104,10 +104,10 @@ export function ColorSection() {
                   <p className="text-sm font-semibold text-base-content">
                     {color.name}
                   </p>
-                  <code className="mt-0.5 block truncate font-mono text-[0.6875rem] text-base-content/45">
+                  <code className="mt-0.5 block truncate font-mono text-[0.6875rem] text-base-content/60">
                     {color.token}
                   </code>
-                  <p className="mt-1.5 text-xs text-base-content/55">
+                  <p className="mt-1.5 text-xs text-base-content/60">
                     {color.usage}
                   </p>
                 </div>
@@ -137,7 +137,7 @@ export function ColorSection() {
                     <p className="text-xs font-semibold text-base-content">
                       {surface.name}
                     </p>
-                    <p className="mt-1 text-[0.6875rem] leading-4 text-base-content/50">
+                    <p className="mt-1 text-[0.6875rem] leading-4 text-base-content/60">
                       {surface.description}
                     </p>
                   </div>

@@ -59,7 +59,7 @@ export function Pagination({
         className,
       )}
     >
-      <p className="text-xs text-base-content/55">
+      <p className="text-xs text-base-content/60">
         Showing{" "}
         <span className="font-semibold text-base-content">
           {formatNumber(firstItem)}–{formatNumber(lastItem)}
@@ -104,7 +104,7 @@ export function Pagination({
             <span
               key={item}
               aria-hidden="true"
-              className="px-1 text-xs text-base-content/40"
+              className="px-1 text-xs text-base-content/60"
             >
               …
             </span>

@@ -266,7 +266,7 @@ describe("DashboardLayout", () => {
     expect(trigger).toHaveFocus();
   });
 
-  it("keeps the Phase 1 theme toggle working inside the topbar", async () => {
+  it("keeps the theme toggle working inside the topbar", async () => {
     const user = userEvent.setup();
     await renderDashboard();
 

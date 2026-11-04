@@ -162,6 +162,53 @@ describe("UsersPage", () => {
     expect(useAuthStore.getState().user.name).toBe("Alex Morgan-Smith");
   });
 
+  it("edits another user's profile and role assignment", async () => {
+    const user = userEvent.setup();
+
+    renderUsersPage();
+    const table = await getUsersTable();
+
+    await searchUsers(user, "natalie cole");
+
+    await waitFor(() => {
+      expect(within(table).getByText("Natalie Cole")).toBeInTheDocument();
+    });
+
+    await user.click(
+      within(table).getByRole("button", {
+        name: "Actions for Natalie Cole",
+      }),
+    );
+    await user.click(screen.getByRole("menuitem", { name: "Edit user" }));
+
+    const dialog = await screen.findByRole("dialog", { name: "Edit user" });
+    const nameInput = within(dialog).getByLabelText(/full name/i);
+
+    await user.clear(nameInput);
+    await user.type(nameInput, "Natalie Cole-Ward");
+    await user.selectOptions(
+      within(dialog).getByRole("combobox", { name: "Role" }),
+      "admin",
+    );
+    await user.click(
+      within(dialog).getByRole("button", { name: "Save changes" }),
+    );
+
+    await waitFor(() => {
+      expect(
+        screen.queryByRole("dialog", { name: "Edit user" }),
+      ).not.toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(within(table).getByText("Natalie Cole-Ward")).toBeInTheDocument();
+    });
+
+    const row = within(table).getByText("Natalie Cole-Ward").closest("tr");
+
+    expect(within(row).getByText("Administrator")).toBeInTheDocument();
+    expect(screen.getByText("User updated successfully.")).toBeInTheDocument();
+  });
+
   it("creates a user and surfaces duplicate email conflicts", async () => {
     const user = userEvent.setup();
 

@@ -91,14 +91,14 @@ export function ProductPerformance({
                   <p className="truncate text-sm font-medium text-base-content">
                     {product.name}
                   </p>
-                  <p className="text-xs text-base-content/55">
+                  <p className="text-xs text-base-content/60">
                     {product.category}
                   </p>
                 </div>
               </div>
 
               <div>
-                <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/40">
+                <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/60">
                   Units
                 </p>
                 <p className="mt-0.5 text-sm font-semibold tabular-nums text-base-content">
@@ -107,7 +107,7 @@ export function ProductPerformance({
               </div>
 
               <div>
-                <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/40">
+                <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/60">
                   Revenue
                 </p>
                 <p className="mt-0.5 text-sm font-semibold tabular-nums text-base-content">
@@ -117,7 +117,7 @@ export function ProductPerformance({
 
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/40">
+                  <p className="text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/60">
                     Share
                   </p>
                   <p className="text-xs font-semibold tabular-nums text-base-content/65">

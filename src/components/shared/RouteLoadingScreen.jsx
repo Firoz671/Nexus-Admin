@@ -19,7 +19,7 @@ export function RouteLoadingScreen({
       <div>
         <p className="text-sm font-medium text-base-content">{label}</p>
         {description ? (
-          <p className="mt-1 text-xs leading-5 text-base-content/55">
+          <p className="mt-1 text-xs leading-5 text-base-content/60">
             {description}
           </p>
         ) : null}

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "./styles/tokens.css";
 
+@source not "../README.md";
+@source not "../ENGINEERING_REPORT.md";
+
 @plugin "daisyui" {
   themes: false;
   logs: false;

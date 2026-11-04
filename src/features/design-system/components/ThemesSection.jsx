@@ -65,7 +65,7 @@ export function ThemesSection() {
                       ) : null}
                     </span>
                   </div>
-                  <p className="mt-2 text-xs leading-5 text-base-content/55">
+                  <p className="mt-2 text-xs leading-5 text-base-content/60">
                     {option.description}
                   </p>
                   <div className="mt-3 flex gap-1.5" aria-hidden="true">
@@ -80,7 +80,7 @@ export function ThemesSection() {
           </div>
 
           <div className="mt-5 flex items-center justify-between gap-3 border-t border-base-300 pt-5">
-            <span className="text-xs text-base-content/50">Active theme</span>
+            <span className="text-xs text-base-content/60">Active theme</span>
             <Badge variant="info" size="sm">
               {theme}
             </Badge>

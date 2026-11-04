@@ -68,7 +68,7 @@ export function AuthLayout({ children }) {
                 <span className="block text-sm font-semibold text-base-content">
                   Nexus Admin
                 </span>
-                <span className="block text-xs text-base-content/55">
+                <span className="block text-xs text-base-content/60">
                   SaaS administration console
                 </span>
               </span>
@@ -77,10 +77,10 @@ export function AuthLayout({ children }) {
             <div className="mt-16 max-w-lg">
               <Badge variant="info" size="sm">
                 <Sparkles className="size-3" aria-hidden="true" />
-                Phase 3 · Mock authentication
+                Demo authentication
               </Badge>
               <p className="mt-5 text-heading-1 font-semibold text-base-content">
-                A realistic auth foundation for the Nexus workspace.
+                Role-aware access to the Nexus workspace.
               </p>
               <p className="mt-4 text-sm leading-6 text-base-content/60">
                 Sign in with a demo account to explore protected routes,
@@ -112,9 +112,9 @@ export function AuthLayout({ children }) {
             </ul>
           </div>
 
-          <div className="flex items-start gap-2.5 rounded-card border border-base-300 bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/55">
+          <div className="flex items-start gap-2.5 rounded-card border border-base-300 bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/60">
             <LockKeyhole
-              className="mt-0.5 size-4 shrink-0 text-base-content/45"
+              className="mt-0.5 size-4 shrink-0 text-base-content/60"
               aria-hidden="true"
             />
             <p>
@@ -143,7 +143,7 @@ export function AuthLayout({ children }) {
                 <span className="block text-sm font-semibold text-base-content">
                   Nexus Admin
                 </span>
-                <span className="block text-xs text-base-content/55">
+                <span className="block text-xs text-base-content/60">
                   SaaS administration console
                 </span>
               </span>

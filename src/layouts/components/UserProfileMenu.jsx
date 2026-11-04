@@ -128,7 +128,7 @@ export function UserProfileMenu({ className }) {
       label: "My Profile",
       icon: User,
       onSelect: () =>
-        showPlaceholder("My Profile is a UI placeholder in this phase."),
+        showPlaceholder("My Profile is a demo placeholder."),
     },
     ...(isRoleAllowedForPath(user?.role, "/settings")
       ? [
@@ -184,14 +184,14 @@ export function UserProfileMenu({ className }) {
           <span className="block truncate text-sm font-medium leading-tight text-base-content">
             {profile.name}
           </span>
-          <span className="block truncate text-[0.6875rem] leading-tight text-base-content/55">
+          <span className="block truncate text-[0.6875rem] leading-tight text-base-content/60">
             {profile.role}
           </span>
         </span>
         <ChevronDown
           aria-hidden="true"
           className={cn(
-            "hidden size-3.5 shrink-0 text-base-content/50 transition-transform duration-200 md:block",
+            "hidden size-3.5 shrink-0 text-base-content/60 transition-transform duration-200 md:block",
             open && "rotate-180",
           )}
         />
@@ -200,13 +200,13 @@ export function UserProfileMenu({ className }) {
       {open ? (
         <div className="nexus-panel-enter absolute right-0 top-full z-50 mt-2 w-64 rounded-card border border-base-300 bg-base-100 p-1.5 shadow-xl">
           <div className="border-b border-base-300 px-3 pb-3 pt-2">
-            <p className="text-label font-semibold uppercase text-base-content/45">
+            <p className="text-label font-semibold uppercase text-base-content/60">
               Signed in as
             </p>
             <p className="mt-1 truncate text-sm font-semibold text-base-content">
               {profile.name}
             </p>
-            <p className="truncate text-xs text-base-content/55">
+            <p className="truncate text-xs text-base-content/60">
               {profile.email}
             </p>
             <Badge variant="neutral" size="sm" className="mt-2">

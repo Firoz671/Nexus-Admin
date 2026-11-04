@@ -22,7 +22,7 @@ import { useAnalyticsOverview } from "../hooks/useAnalyticsData";
 function SubscriptionMetric({ icon: Icon, label, value, accent }) {
   return (
     <div className="rounded-control border border-base-300 bg-base-200/60 p-3">
-      <div className="flex items-center gap-2 text-base-content/55">
+      <div className="flex items-center gap-2 text-base-content/60">
         <Icon
           className={`size-3.5 ${accent ?? ""}`}
           aria-hidden="true"

@@ -81,7 +81,7 @@ export function ProductDetailModal({ productId, onClose }) {
               <h3 className="text-heading-3 font-semibold text-base-content">
                 {product.name}
               </h3>
-              <p className="mt-1 font-mono text-xs text-base-content/55">
+              <p className="mt-1 font-mono text-xs text-base-content/60">
                 {product.sku}
               </p>
               <div className="mt-2 flex flex-wrap items-center gap-1.5">
@@ -118,7 +118,7 @@ export function ProductDetailModal({ productId, onClose }) {
           />
 
           <div>
-            <h4 className="text-[0.6875rem] font-semibold uppercase tracking-wide text-base-content/45">
+            <h4 className="text-[0.6875rem] font-semibold uppercase tracking-wide text-base-content/60">
               Description
             </h4>
             <p className="mt-1.5 whitespace-pre-line text-sm leading-6 text-base-content/70">

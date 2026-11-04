@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import {
   formatCompactCurrency,
   formatCurrency,
@@ -18,12 +19,13 @@ import { ChartTooltip } from "./ChartTooltip";
 
 const AXIS_TICK = {
   fill: "var(--color-base-content)",
-  fillOpacity: 0.55,
+  fillOpacity: 0.7,
   fontSize: 12,
 };
 
 export function RevenueChart({ points = [] }) {
   const rawId = useId();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const gradientId = `revenue-fill-${rawId.replace(/:/g, "")}`;
 
   return (
@@ -100,6 +102,7 @@ export function RevenueChart({ points = [] }) {
             fill={`url(#${gradientId})`}
             dot={false}
             activeDot={{ r: 4, strokeWidth: 0 }}
+            isAnimationActive={!prefersReducedMotion}
           />
           <Line
             type="monotone"
@@ -110,6 +113,7 @@ export function RevenueChart({ points = [] }) {
             strokeDasharray="5 4"
             dot={false}
             activeDot={{ r: 3.5, strokeWidth: 0 }}
+            isAnimationActive={!prefersReducedMotion}
           />
         </ComposedChart>
       </ResponsiveContainer>

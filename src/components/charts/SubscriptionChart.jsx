@@ -8,16 +8,19 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { formatNumber } from "@/utils/formatters";
 import { ChartTooltip } from "./ChartTooltip";
 
 const AXIS_TICK = {
   fill: "var(--color-base-content)",
-  fillOpacity: 0.55,
+  fillOpacity: 0.7,
   fontSize: 12,
 };
 
 export function SubscriptionChart({ points = [] }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <div
       className="h-[260px] w-full min-w-0"
@@ -68,12 +71,14 @@ export function SubscriptionChart({ points = [] }) {
             name="New subscriptions"
             fill="var(--color-success)"
             radius={[4, 4, 0, 0]}
+            isAnimationActive={!prefersReducedMotion}
           />
           <Bar
             dataKey="churnedSubscriptions"
             name="Churned"
             fill="var(--color-error)"
             radius={[4, 4, 0, 0]}
+            isAnimationActive={!prefersReducedMotion}
           />
         </BarChart>
       </ResponsiveContainer>

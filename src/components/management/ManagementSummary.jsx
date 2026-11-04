@@ -29,7 +29,7 @@ function SummaryCard({ item }) {
             {formatValue(item.value)}
           </p>
           {item.hint ? (
-            <p className="mt-1.5 text-xs text-base-content/45">{item.hint}</p>
+            <p className="mt-1.5 text-xs text-base-content/60">{item.hint}</p>
           ) : null}
         </div>
 

@@ -18,7 +18,6 @@
     "axios": "^1.21.0",
     "daisyui": "^5.7.50",
     "date-fns": "^4.4.0",
-    "framer-motion": "^14.8.0",
     "lucide-react": "^1.64.0",
     "msw": "^3.0.3",
     "react": "^19.3.1",

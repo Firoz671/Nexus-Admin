@@ -14,7 +14,7 @@ export function ComingSoonPage({ icon: Icon, title, description, note }) {
         description={description}
         actions={
           <Badge variant="info" size="sm">
-            Planned for a later phase
+            Planned for a future release
           </Badge>
         }
       />
@@ -25,7 +25,7 @@ export function ComingSoonPage({ icon: Icon, title, description, note }) {
           title={`${title} is coming soon`}
           description={
             note ??
-            "This route validates the application shell and navigation. The module itself is not part of Phase 2 and will be built in a later phase."
+            "This route validates the application shell and navigation. The module itself is outside the current release scope."
           }
           className="px-6 py-14 sm:py-16"
           action={

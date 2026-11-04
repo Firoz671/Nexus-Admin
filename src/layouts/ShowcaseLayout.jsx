@@ -34,8 +34,8 @@ export function ShowcaseLayout() {
               <span className="block truncate text-sm font-semibold text-base-content">
                 Nexus Admin
               </span>
-              <span className="block truncate text-xs text-base-content/55">
-                Design System · Phase 1
+              <span className="block truncate text-xs text-base-content/60">
+                Design System
               </span>
             </span>
           </Link>
@@ -69,7 +69,7 @@ export function ShowcaseLayout() {
       <div className="mx-auto flex w-full max-w-7xl gap-10 px-4 sm:px-6 lg:px-8">
         <aside className="hidden w-56 shrink-0 lg:block">
           <div className="sticky top-24 py-10">
-            <p className="text-label font-semibold uppercase text-base-content/45">
+            <p className="text-label font-semibold uppercase text-base-content/60">
               On this page
             </p>
 
@@ -102,7 +102,8 @@ export function ShowcaseLayout() {
 
         <main
           id="main-content"
-          className="min-w-0 flex-1 pb-16 pt-8 sm:pt-10"
+          tabIndex={-1}
+          className="min-w-0 flex-1 pb-16 pt-8 outline-none sm:pt-10"
         >
           <Suspense
             fallback={
@@ -119,8 +120,8 @@ export function ShowcaseLayout() {
       </div>
 
       <footer className="border-t border-base-300 bg-base-100">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-base-content/55 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>Nexus Admin · Phase 1 foundation and design system</p>
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-base-content/60 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>Nexus Admin · Component and token reference</p>
           <a
             href="#overview"
             className="w-fit rounded-control font-medium text-base-content/70 transition-colors hover:text-primary focus-visible:outline-offset-4"

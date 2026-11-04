@@ -85,7 +85,7 @@ export function SidebarFooter({
   const roleLabel = ROLE_LABELS[user?.role] ?? "Workspace member";
 
   const handleHelp = () => {
-    toast("Help and support is planned for a later phase.");
+    toast("Help and support is not available in this demo.");
   };
 
   return (
@@ -124,7 +124,7 @@ export function SidebarFooter({
               <p className="truncate text-sm font-medium text-base-content">
                 {displayName}
               </p>
-              <p className="truncate text-xs text-base-content/55">
+              <p className="truncate text-xs text-base-content/60">
                 {roleLabel}
               </p>
             </div>
@@ -196,7 +196,7 @@ export function Sidebar({ collapsed, onToggleCollapse }) {
               <span className="block truncate text-sm font-semibold text-base-content">
                 Nexus Admin
               </span>
-              <span className="block truncate text-xs text-base-content/55">
+              <span className="block truncate text-xs text-base-content/60">
                 Administration console
               </span>
             </span>

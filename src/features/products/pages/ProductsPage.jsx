@@ -275,8 +275,8 @@ export function ProductsPage() {
                 </div>
               </div>
 
-              <div className="mt-3 flex min-h-5 flex-wrap items-center justify-between gap-2 text-xs text-base-content/50">
-                <span>
+              <div className="mt-3 flex min-h-5 flex-wrap items-center justify-between gap-2 text-xs text-base-content/60">
+                <span role="status">
                   {pagination?.totalItems
                     ? `${pagination.totalItems} matching product${
                         pagination.totalItems === 1 ? "" : "s"

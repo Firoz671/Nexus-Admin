@@ -53,8 +53,8 @@ export function DashboardLayout() {
           </MainContent>
 
           <footer className="border-t border-base-300 bg-base-100">
-            <div className="mx-auto flex w-full max-w-7xl flex-col gap-1.5 px-4 py-4 text-xs text-base-content/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-              <p>Nexus Admin · Phase 5 · Management modules</p>
+            <div className="mx-auto flex w-full max-w-7xl flex-col gap-1.5 px-4 py-4 text-xs text-base-content/60 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+              <p>Nexus Admin · SaaS administration console</p>
               <Link
                 to="/design-system"
                 className="w-fit rounded-control font-medium text-base-content/65 transition-colors hover:text-primary focus-visible:outline-offset-4"

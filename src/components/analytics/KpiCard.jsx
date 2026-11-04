@@ -42,7 +42,7 @@ export function KpiCard({ kpi }) {
     ? "text-success"
     : isNegative
       ? "text-error"
-      : "text-base-content/50";
+      : "text-base-content/60";
   const changeDescription = `${
     isPositive ? "Increased" : isNegative ? "Decreased" : "Unchanged"
   } by ${Math.abs(change).toFixed(1)} percent ${kpi.comparisonLabel ?? ""}`;
@@ -75,7 +75,7 @@ export function KpiCard({ kpi }) {
           <TrendIcon className="size-3.5" />
           {formatPercent(change, { signed: true })}
         </span>
-        <span className="text-base-content/50" aria-hidden="true">
+        <span className="text-base-content/60" aria-hidden="true">
           {kpi.comparisonLabel}
         </span>
         <span className="sr-only">{changeDescription}</span>

@@ -220,6 +220,53 @@ describe("ProductsPage", () => {
     ).toBeInTheDocument();
   });
 
+  it("edits product pricing and inventory details", async () => {
+    const user = userEvent.setup();
+
+    renderProductsPage();
+    const table = await getProductsTable();
+
+    await searchProducts(user, "fleet monitoring");
+
+    await waitFor(() => {
+      expect(within(table).getByText("Fleet Monitoring")).toBeInTheDocument();
+    });
+
+    await user.click(
+      within(table).getByRole("button", {
+        name: "Actions for Fleet Monitoring",
+      }),
+    );
+    await user.click(screen.getByRole("menuitem", { name: "Edit product" }));
+
+    const dialog = await screen.findByRole("dialog", { name: "Edit product" });
+    const priceInput = within(dialog).getByLabelText(/price/i);
+    const stockInput = within(dialog).getByLabelText(/stock quantity/i);
+
+    await user.clear(priceInput);
+    await user.type(priceInput, "199.50");
+    await user.clear(stockInput);
+    await user.type(stockInput, "3");
+    await user.click(
+      within(dialog).getByRole("button", { name: "Save changes" }),
+    );
+
+    await waitFor(() => {
+      expect(
+        screen.queryByRole("dialog", { name: "Edit product" }),
+      ).not.toBeInTheDocument();
+    });
+    await waitFor(() => {
+      const row = within(table).getByText("Fleet Monitoring").closest("tr");
+
+      expect(within(row).getByText("$199.50")).toBeInTheDocument();
+      expect(within(row).getByText("Low stock")).toBeInTheDocument();
+    });
+    expect(
+      screen.getByText("Product updated successfully."),
+    ).toBeInTheDocument();
+  });
+
   it("shows product details and supports status and deletion workflows", async () => {
     const user = userEvent.setup();
 

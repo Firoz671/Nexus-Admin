@@ -84,12 +84,12 @@ export function ModalSection() {
         >
           <div className="flex flex-wrap items-center gap-3">
             <Button onClick={open}>Open modal</Button>
-            <span className="text-xs text-base-content/50">
+            <span className="text-xs text-base-content/60">
               Try Escape, the backdrop, or the close button.
             </span>
           </div>
 
-          <div className="mt-5 rounded-control border border-base-300 bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/55">
+          <div className="mt-5 rounded-control border border-base-300 bg-base-200/60 p-3.5 text-xs leading-5 text-base-content/60">
             The dialog renders through a portal, locks background scrolling, and
             restores focus to the trigger when closed.
           </div>
@@ -168,7 +168,7 @@ export function DropdownSection() {
             />
           </div>
 
-          <p className="mt-5 border-t border-base-300 pt-5 text-xs leading-5 text-base-content/55">
+          <p className="mt-5 border-t border-base-300 pt-5 text-xs leading-5 text-base-content/60">
             Menus close on outside click, selection, Escape, or Tab. Focus
             returns to the trigger after keyboard dismissal.
           </p>
@@ -191,7 +191,7 @@ export function DropdownSection() {
                   {shortcut.keys.map((key) => (
                     <kbd
                       key={key}
-                      className="rounded border border-base-300 bg-base-100 px-1.5 py-0.5 font-mono text-[0.6875rem] text-base-content/55"
+                      className="rounded border border-base-300 bg-base-100 px-1.5 py-0.5 font-mono text-[0.6875rem] text-base-content/60"
                     >
                       {key}
                     </kbd>

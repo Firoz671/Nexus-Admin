@@ -26,7 +26,7 @@ export function LoginPage() {
 
       <LoginForm />
 
-      <p className="mt-7 text-center text-xs leading-5 text-base-content/50 lg:hidden">
+      <p className="mt-7 text-center text-xs leading-5 text-base-content/60 lg:hidden">
         Demo environment. Credentials are public and authentication is
         simulated by MSW.
       </p>

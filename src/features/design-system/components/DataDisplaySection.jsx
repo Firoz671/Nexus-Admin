@@ -69,7 +69,7 @@ export function BadgesSection() {
                   <p className="truncate text-sm font-medium text-base-content">
                     {row.customer}
                   </p>
-                  <p className="text-xs text-base-content/50">{row.plan}</p>
+                  <p className="text-xs text-base-content/60">{row.plan}</p>
                 </div>
                 <Badge variant={statusVariants[row.status]} size="sm">
                   {row.status}
@@ -96,7 +96,7 @@ export function CardsSection() {
           description="Standard title, description, content, and footer composition."
           footer={
             <div className="flex items-center justify-between gap-3">
-              <span className="flex items-center gap-1.5 text-xs text-base-content/50">
+              <span className="flex items-center gap-1.5 text-xs text-base-content/60">
                 <Clock className="size-3.5" aria-hidden="true" />
                 Updated 8 minutes ago
               </span>
@@ -119,7 +119,7 @@ export function CardsSection() {
                 <p className="text-lg font-semibold text-base-content">
                   {metric.value}
                 </p>
-                <p className="text-xs text-base-content/50">{metric.label}</p>
+                <p className="text-xs text-base-content/60">{metric.label}</p>
               </div>
             ))}
           </div>
@@ -143,7 +143,7 @@ export function CardsSection() {
                     Owner
                   </Badge>
                 </div>
-                <p className="mt-0.5 text-xs text-base-content/50">
+                <p className="mt-0.5 text-xs text-base-content/60">
                   Requested access to the Billing workspace
                 </p>
               </div>
@@ -174,7 +174,7 @@ export function CardsSection() {
               <p className="text-sm font-medium text-base-content">
                 Custom header and footer
               </p>
-              <p className="mt-1 text-xs leading-5 text-base-content/55">
+              <p className="mt-1 text-xs leading-5 text-base-content/60">
                 Compose richer cards with avatars, metadata, and action groups
                 while keeping consistent padding and borders.
               </p>
@@ -207,7 +207,7 @@ export function AvatarsSection() {
                   name="Alex Morgan"
                   size={size}
                 />
-                <span className="font-mono text-[0.6875rem] uppercase text-base-content/45">
+                <span className="font-mono text-[0.6875rem] uppercase text-base-content/60">
                   {size}
                 </span>
               </div>
@@ -222,19 +222,19 @@ export function AvatarsSection() {
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex flex-col items-center gap-2">
               <Avatar name="Jordan Lee" size="lg" />
-              <span className="text-xs text-base-content/50">Jordan Lee</span>
+              <span className="text-xs text-base-content/60">Jordan Lee</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Avatar name="Priya Shah" size="lg" />
-              <span className="text-xs text-base-content/50">Priya Shah</span>
+              <span className="text-xs text-base-content/60">Priya Shah</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Avatar name="Marcus Chen" size="lg" />
-              <span className="text-xs text-base-content/50">Marcus Chen</span>
+              <span className="text-xs text-base-content/60">Marcus Chen</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Avatar size="lg" />
-              <span className="text-xs text-base-content/50">Unknown</span>
+              <span className="text-xs text-base-content/60">Unknown</span>
             </div>
           </div>
         </Card>

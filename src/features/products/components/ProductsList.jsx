@@ -159,7 +159,7 @@ export function ProductsList({
                   <p className="truncate font-semibold text-base-content">
                     {product.name}
                   </p>
-                  <p className="mt-0.5 font-mono text-xs text-base-content/50">
+                  <p className="mt-0.5 font-mono text-xs text-base-content/60">
                     {product.sku}
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-1.5">
@@ -179,19 +179,19 @@ export function ProductsList({
 
             <div className="mt-3 grid grid-cols-2 gap-2 border-t border-base-300/60 pt-3 text-xs">
               <div>
-                <p className="text-base-content/45">Price</p>
+                <p className="text-base-content/60">Price</p>
                 <p className="mt-0.5 font-semibold tabular-nums text-base-content">
                   {formatCurrency(product.price, { precise: true })}
                 </p>
               </div>
               <div>
-                <p className="text-base-content/45">Stock</p>
+                <p className="text-base-content/60">Stock</p>
                 <div className="mt-0.5">
                   <StockCell stock={product.stock} />
                 </div>
               </div>
               <div className="col-span-2">
-                <p className="text-base-content/45">Created</p>
+                <p className="text-base-content/60">Created</p>
                 <p className="mt-0.5 text-base-content/70">
                   {formatDate(product.createdAt)}
                 </p>

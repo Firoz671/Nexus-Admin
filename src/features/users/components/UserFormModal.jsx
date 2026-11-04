@@ -139,28 +139,28 @@ export function UserFormModal({
 
         {isSelf ? (
           <div className="rounded-control border border-base-300 bg-base-200/60 p-3.5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-base-content/55">
+            <p className="text-xs font-semibold uppercase tracking-wide text-base-content/60">
               Protected account fields
             </p>
-            <p className="mt-1.5 text-xs leading-5 text-base-content/55">
+            <p className="mt-1.5 text-xs leading-5 text-base-content/60">
               Email, role, and status cannot be changed for the account that is
               currently signed in.
             </p>
             <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
               <div>
-                <dt className="text-xs text-base-content/45">Email</dt>
+                <dt className="text-xs text-base-content/60">Email</dt>
                 <dd className="mt-0.5 font-medium text-base-content">
                   {user?.email}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs text-base-content/45">Role</dt>
+                <dt className="text-xs text-base-content/60">Role</dt>
                 <dd className="mt-0.5 font-medium text-base-content">
                   {ROLE_LABELS[user?.role] ?? "—"}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs text-base-content/45">Status</dt>
+                <dt className="text-xs text-base-content/60">Status</dt>
                 <dd className="mt-0.5 font-medium text-base-content">
                   {USER_STATUS_LABELS[user?.status] ?? "—"}
                 </dd>

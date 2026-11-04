@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DateRangeFilter } from "@/components/shared/DateRangeFilter";
 import { createDateRange, getRangeDayCount } from "@/utils/dateRange";
@@ -99,6 +99,9 @@ describe("DateRangeFilter", () => {
     expect(
       screen.getByRole("group", { name: "Custom date range" }),
     ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByLabelText("Start date")).toHaveFocus();
+    });
 
     await user.keyboard("{Escape}");
 

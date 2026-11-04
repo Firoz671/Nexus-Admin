@@ -16,7 +16,7 @@ const SAMPLE_NOTIFICATIONS = Object.freeze([
     id: "shell-preview",
     title: "Application shell preview",
     description:
-      "The Phase 2 sidebar, topbar, and responsive navigation are ready to explore.",
+      "The responsive sidebar, topbar, and navigation are ready to explore.",
     time: "Sample · today",
     icon: LayoutDashboard,
   },
@@ -24,7 +24,7 @@ const SAMPLE_NOTIFICATIONS = Object.freeze([
     id: "design-tokens",
     title: "Design tokens available",
     description:
-      "Phase 1 semantic colors and typography are used throughout the new layout.",
+      "Semantic colors and typography are applied consistently across the console.",
     time: "Sample · earlier",
     icon: Palette,
   },
@@ -32,7 +32,7 @@ const SAMPLE_NOTIFICATIONS = Object.freeze([
     id: "module-routes",
     title: "Module routes prepared",
     description:
-      "Analytics, orders, products, users, and settings now have placeholder routes.",
+      "Analytics, orders, products, and users are available from the main navigation.",
     time: "Sample · earlier",
     icon: ChartNoAxesCombined,
   },
@@ -115,7 +115,7 @@ export function NotificationButton({ className }) {
                   Preview
                 </Badge>
               </div>
-              <p className="mt-1 text-xs text-base-content/55">
+              <p className="mt-1 text-xs text-base-content/60">
                 Sample content for layout demonstration.
               </p>
             </div>
@@ -159,7 +159,7 @@ export function NotificationButton({ className }) {
                     <span className="mt-0.5 block text-xs leading-5 text-base-content/60">
                       {notification.description}
                     </span>
-                    <span className="mt-1 block text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/40">
+                    <span className="mt-1 block text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/60">
                       {notification.time}
                     </span>
                   </span>

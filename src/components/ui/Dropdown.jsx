@@ -187,7 +187,7 @@ export function Dropdown({
                 ) : null}
                 <span className="flex-1 truncate">{item.label}</span>
                 {item.shortcut ? (
-                  <kbd className="rounded border border-base-300 bg-base-200 px-1.5 py-0.5 text-[0.6875rem] font-medium text-base-content/50">
+                  <kbd className="rounded border border-base-300 bg-base-200 px-1.5 py-0.5 text-[0.6875rem] font-medium text-base-content/60">
                     {item.shortcut}
                   </kbd>
                 ) : null}

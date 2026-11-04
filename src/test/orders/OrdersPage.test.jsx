@@ -57,6 +57,65 @@ describe("OrdersPage", () => {
     ).toBeInTheDocument();
   });
 
+  it("paginates the directory and sorts by order total", async () => {
+    const user = userEvent.setup();
+
+    renderOrdersPage();
+    const table = await getOrdersTable();
+
+    expect(screen.getByText(/showing/i)).toHaveTextContent(
+      "Showing 1–10 of 30 orders",
+    );
+
+    await user.click(screen.getByRole("button", { name: "Go to page 2" }));
+
+    await waitFor(() => {
+      expect(within(table).getByText("ORD-1011")).toBeInTheDocument();
+    });
+    expect(
+      screen.getByRole("button", { name: "Go to page 2" }),
+    ).toHaveAttribute("aria-current", "page");
+    expect(screen.getByText(/showing/i)).toHaveTextContent(
+      "Showing 11–20 of 30 orders",
+    );
+
+    const getTotals = () =>
+      within(table)
+        .getAllByRole("row")
+        .slice(1)
+        .map((row) =>
+          Number(
+            within(row)
+              .getAllByRole("cell")[4]
+              .textContent.replace(/[^0-9.-]/g, ""),
+          ),
+        );
+
+    await user.click(
+      within(table).getByRole("button", { name: "Sort by Total" }),
+    );
+
+    await waitFor(() => {
+      const totals = getTotals();
+
+      expect(totals).toHaveLength(10);
+      expect(totals).toEqual([...totals].sort((left, right) => right - left));
+    });
+    expect(
+      within(table).getByRole("columnheader", { name: /total/i }),
+    ).toHaveAttribute("aria-sort", "descending");
+
+    await user.click(
+      within(table).getByRole("button", { name: "Sort by Total" }),
+    );
+
+    await waitFor(() => {
+      const totals = getTotals();
+
+      expect(totals).toEqual([...totals].sort((left, right) => left - right));
+    });
+  });
+
   it("filters by search, order status, payment status, and validates dates", async () => {
     const user = userEvent.setup();
 

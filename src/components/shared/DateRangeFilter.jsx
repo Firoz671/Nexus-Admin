@@ -29,13 +29,19 @@ export function DateRangeFilter({ value, onChange, className }) {
   const [customEnd, setCustomEnd] = useState(value.end);
   const [customError, setCustomError] = useState("");
   const panelId = useId();
+  const errorId = `${panelId}-error`;
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
+  const startInputRef = useRef(null);
 
   useEffect(() => {
     if (!customOpen) {
       return undefined;
     }
+
+    const focusTimer = window.setTimeout(() => {
+      startInputRef.current?.focus();
+    }, 0);
 
     const handlePointerDown = (event) => {
       if (!containerRef.current?.contains(event.target)) {
@@ -54,6 +60,7 @@ export function DateRangeFilter({ value, onChange, className }) {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -77,12 +84,18 @@ export function DateRangeFilter({ value, onChange, className }) {
     setCustomOpen(true);
   };
 
+  const closeCustomRange = () => {
+    setCustomOpen(false);
+    triggerRef.current?.focus();
+  };
+
   const applyCustomRange = () => {
     try {
       const nextRange = createCustomDateRange(customStart, customEnd);
 
       setCustomError("");
       setCustomOpen(false);
+      triggerRef.current?.focus();
       onChange(nextRange);
     } catch (error) {
       setCustomError(error.message);
@@ -135,7 +148,10 @@ export function DateRangeFilter({ value, onChange, className }) {
         </button>
       </div>
 
-      <p className="flex items-center gap-1.5 text-xs text-base-content/55">
+      <p
+        aria-live="polite"
+        className="flex items-center gap-1.5 text-xs text-base-content/60"
+      >
         <span
           className="size-1.5 shrink-0 rounded-full bg-primary"
           aria-hidden="true"
@@ -156,15 +172,15 @@ export function DateRangeFilter({ value, onChange, className }) {
               <p className="text-sm font-semibold text-base-content">
                 Custom range
               </p>
-              <p className="mt-0.5 text-xs leading-5 text-base-content/55">
+              <p className="mt-0.5 text-xs leading-5 text-base-content/60">
                 Choose up to 366 days.
               </p>
             </div>
             <button
               type="button"
-              onClick={() => setCustomOpen(false)}
+              onClick={closeCustomRange}
               aria-label="Close custom date range"
-              className="flex size-7 shrink-0 items-center justify-center rounded-control text-base-content/50 transition-colors hover:bg-base-200 hover:text-base-content focus-visible:outline-offset-2"
+              className="flex size-7 shrink-0 items-center justify-center rounded-control text-base-content/60 transition-colors hover:bg-base-200 hover:text-base-content focus-visible:outline-offset-2"
             >
               <X className="size-4" aria-hidden="true" />
             </button>
@@ -176,9 +192,12 @@ export function DateRangeFilter({ value, onChange, className }) {
                 Start date
               </span>
               <input
+                ref={startInputRef}
                 type="date"
                 value={customStart}
                 max={customEnd || undefined}
+                aria-invalid={customError ? true : undefined}
+                aria-describedby={customError ? errorId : undefined}
                 onChange={(event) => setCustomStart(event.target.value)}
                 className="input input-sm w-full border-base-300 bg-base-100 text-sm"
               />
@@ -192,6 +211,8 @@ export function DateRangeFilter({ value, onChange, className }) {
                 type="date"
                 value={customEnd}
                 min={customStart || undefined}
+                aria-invalid={customError ? true : undefined}
+                aria-describedby={customError ? errorId : undefined}
                 onChange={(event) => setCustomEnd(event.target.value)}
                 className="input input-sm w-full border-base-300 bg-base-100 text-sm"
               />
@@ -199,7 +220,7 @@ export function DateRangeFilter({ value, onChange, className }) {
           </div>
 
           {customError ? (
-            <p role="alert" className="mt-2.5 text-xs text-error">
+            <p id={errorId} role="alert" className="mt-2.5 text-xs text-error">
               {customError}
             </p>
           ) : null}
@@ -208,7 +229,7 @@ export function DateRangeFilter({ value, onChange, className }) {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setCustomOpen(false)}
+              onClick={closeCustomRange}
             >
               Cancel
             </Button>

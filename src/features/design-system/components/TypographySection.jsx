@@ -36,7 +36,7 @@ const typeSpecimens = [
   },
   {
     label: "Caption · 12 / 20",
-    className: "text-caption text-base-content/55",
+    className: "text-caption text-base-content/60",
     sample: "Last updated 12 minutes ago",
   },
 ];
@@ -74,7 +74,7 @@ export function TypographySection() {
                 key={item.label}
                 className="flex flex-col gap-1.5 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-baseline sm:gap-6"
               >
-                <span className="w-40 shrink-0 font-mono text-[0.6875rem] text-base-content/45">
+                <span className="w-40 shrink-0 font-mono text-[0.6875rem] text-base-content/60">
                   {item.label}
                 </span>
                 <p className={cn("min-w-0 text-base-content", item.className)}>
@@ -96,13 +96,13 @@ export function TypographySection() {
                   key={foundation.label}
                   className="rounded-control border border-base-300 bg-base-200/50 p-3.5"
                 >
-                  <dt className="text-label font-semibold uppercase text-base-content/45">
+                  <dt className="text-label font-semibold uppercase text-base-content/60">
                     {foundation.label}
                   </dt>
                   <dd className="mt-1 text-sm font-semibold text-base-content">
                     {foundation.value}
                   </dd>
-                  <dd className="mt-1 text-xs leading-5 text-base-content/55">
+                  <dd className="mt-1 text-xs leading-5 text-base-content/60">
                     {foundation.description}
                   </dd>
                 </div>

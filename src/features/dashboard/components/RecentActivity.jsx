@@ -123,7 +123,7 @@ export function RecentActivity({
                     {item.description}
                   </p>
                   <p
-                    className="mt-1 text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/40"
+                    className="mt-1 text-[0.6875rem] font-medium uppercase tracking-wide text-base-content/60"
                     title={formatDateTime(item.timestamp)}
                   >
                     {formatRelativeDate(item.timestamp)}

@@ -35,7 +35,7 @@ export function Breadcrumbs({ className }) {
             <li className="shrink-0">
               <Link
                 to={DASHBOARD_PATH}
-                className="rounded-control font-medium text-base-content/55 transition-colors hover:text-base-content focus-visible:outline-offset-4"
+                className="rounded-control font-medium text-base-content/60 transition-colors hover:text-base-content focus-visible:outline-offset-4"
               >
                 Dashboard
               </Link>

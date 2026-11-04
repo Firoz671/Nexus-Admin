@@ -34,7 +34,7 @@ export function DataTable({
       >
         <caption className="sr-only">{caption}</caption>
         <thead>
-          <tr className="text-xs uppercase tracking-wide text-base-content/45">
+          <tr className="text-xs uppercase tracking-wide text-base-content/60">
             {columns.map((column) => {
               const isSorted = Boolean(column.sortKey) && sortBy === column.sortKey;
               const ariaSort = isSorted

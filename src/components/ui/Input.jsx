@@ -46,7 +46,7 @@ export function Input({
       >
         {leadingIcon ? (
           <span
-            className="pointer-events-none shrink-0 text-base-content/50 [&_svg]:size-4"
+            className="pointer-events-none shrink-0 text-base-content/60 [&_svg]:size-4"
             aria-hidden="true"
           >
             {leadingIcon}
@@ -69,7 +69,7 @@ export function Input({
           <span className="shrink-0">{trailingAction}</span>
         ) : trailingIcon ? (
           <span
-            className="pointer-events-none shrink-0 text-base-content/50 [&_svg]:size-4"
+            className="pointer-events-none shrink-0 text-base-content/60 [&_svg]:size-4"
             aria-hidden="true"
           >
             {trailingIcon}

@@ -204,6 +204,44 @@ describe("authentication session", () => {
     expect(window.location.pathname).toBe("/dashboard");
   });
 
+  it("clears the session and returns to login after a mid-session 401", async () => {
+    const user = userEvent.setup();
+    signInAs("admin");
+    server.use(
+      http.get(/\/users\/?$/, () =>
+        HttpResponse.json(
+          {
+            success: false,
+            message: "Your session has expired.",
+            data: null,
+          },
+          { status: 401 },
+        ),
+      ),
+    );
+
+    renderAppAt("/dashboard");
+    await screen.findByRole("heading", { level: 1, name: "Overview" });
+
+    await user.click(screen.getByRole("link", { name: "Users" }));
+
+    expect(
+      await screen.findByRole("heading", {
+        level: 1,
+        name: "Sign in to Nexus Admin",
+      }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/login");
+    expect(useAuthStore.getState().isAuthenticated).toBe(false);
+    expect(useAuthStore.getState().accessToken).toBeNull();
+    expect(
+      localStorage.getItem(AUTH_STORAGE_KEY)
+        ? JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY)).state
+            .accessToken
+        : null,
+    ).toBeNull();
+  });
+
   it("clears the local session even when the logout request fails", async () => {
     const user = userEvent.setup();
     signInAs("admin");

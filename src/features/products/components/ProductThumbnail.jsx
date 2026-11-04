@@ -15,7 +15,7 @@ export function ProductThumbnail({ src, name, size = "md", className }) {
   return (
     <span
       className={cn(
-        "flex shrink-0 items-center justify-center overflow-hidden border border-base-300 bg-base-200 text-base-content/45",
+        "flex shrink-0 items-center justify-center overflow-hidden border border-base-300 bg-base-200 text-base-content/60",
         sizeClasses[size] ?? sizeClasses.md,
         className,
       )}
@@ -24,6 +24,8 @@ export function ProductThumbnail({ src, name, size = "md", className }) {
         <img
           src={src}
           alt={`${name} product`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover"
           onError={() => setFailedSrc(src)}
         />
